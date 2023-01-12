@@ -1,15 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UI.Dragging;
+using Inventories;
 
-namespace UI.Inventory
+namespace UI.Inventories
 {
     /// <summary>
     /// To be placed on icons representing the item in a slot. Allows the item
     /// to be dragged into other slots.
     /// </summary>
-    public class InventoryDragItem : DragItem<Sprite>
+    public class InventoryDragItem : DragItem<InventoryItem>
     {
     }
 }

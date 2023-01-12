@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     Vector2 moveInput;
     Rigidbody2D myRigidbody;
+    private float moveSpeed = 1.5f;
     
 
     void Start()
@@ -16,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate() 
     {
-        myRigidbody.velocity = moveInput;
+        myRigidbody.velocity = moveInput * moveSpeed;
     }
 
 
