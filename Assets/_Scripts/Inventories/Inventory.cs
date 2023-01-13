@@ -16,7 +16,13 @@ namespace Inventories
         [SerializeField] int inventorySize = 16;
 
         // STATE
-        InventoryItem[] slots;
+        InventorySlot[] slots;
+
+        public struct InventorySlot
+        {
+            public InventoryItem item;
+            public int number;
+        }
 
         // PUBLIC
 
@@ -54,8 +60,9 @@ namespace Inventories
         /// Attempt to add the items to the first available slot.
         /// </summary>
         /// <param name="item">The item to add.</param>
+        /// <param name="number">The number to add.</param>
         /// <returns>Whether or not the item could be added.</returns>
-        public bool AddToFirstEmptySlot(InventoryItem item)
+        public bool AddToFirstEmptySlot(InventoryItem item, int number)
         {
             int i = FindSlot(item);
 
@@ -64,7 +71,8 @@ namespace Inventories
                 return false;
             }
 
-            slots[i] = item;
+            slots[i].item = item;
+            slots[i].number += number;
             if (inventoryUpdated != null)
             {
                 inventoryUpdated();
@@ -92,15 +100,30 @@ namespace Inventories
         /// </summary>
         public InventoryItem GetItemInSlot(int slot)
         {
-            return slots[slot];
+            return slots[slot].item;
         }
 
         /// <summary>
-        /// Remove the item from the given slot.
+        /// Get the number of items in the given slot.
         /// </summary>
-        public void RemoveFromSlot(int slot)
+        public int GetNumberInSlot(int slot)
         {
-            slots[slot] = null;
+            return slots[slot].number;
+        }
+
+
+        /// <summary>
+        /// Remove a number of items from the given slot. Will never remove more
+        /// that there are.
+        /// </summary>
+        public void RemoveFromSlot(int slot, int number)
+        {
+            slots[slot].number -= number;
+            if (slots[slot].number <= 0)
+            {
+                slots[slot].number = 0;
+                slots[slot].item = null;
+            }
             if (inventoryUpdated != null)
             {
                 inventoryUpdated();
@@ -114,16 +137,23 @@ namespace Inventories
         /// </summary>
         /// <param name="slot">The slot to attempt to add to.</param>
         /// <param name="item">The item type to add.</param>
+        /// <param name="number">The number of items to add.</param>
         /// <returns>True if the item was added anywhere in the inventory.</returns>
-        public bool AddItemToSlot(int slot, InventoryItem item)
+        public bool AddItemToSlot(int slot, InventoryItem item, int number)
         {
-            if (slots[slot] != null)
+            if (slots[slot].item != null)
             {
-                return AddToFirstEmptySlot(item);
+                return AddToFirstEmptySlot(item, number); ;
             }
 
-            slots[slot] = item;
-            print("added item:" + item);
+            var i = FindStack(item);
+            if (i >= 0)
+            {
+                slot = i;
+            }
+
+            slots[slot].item = item;
+            slots[slot].number += number;
             if (inventoryUpdated != null)
             {
                 inventoryUpdated();
@@ -135,9 +165,14 @@ namespace Inventories
 
         private void Awake()
         {
-            slots = new InventoryItem[inventorySize];
-            slots[0] = InventoryItem.GetFromID("3fd6db37-0289-478a-8fb7-fe16e73bdf69");
-            slots[1] = InventoryItem.GetFromID("c6500a82-d2db-42cb-aea2-db68f93c72d5");
+            slots = new InventorySlot[inventorySize];
+            AddItemToSlot(0, InventoryItem.GetFromID("7854690f-026b-4121-875a-548b2c5c0024"),1);
+            AddItemToSlot(1, InventoryItem.GetFromID("1dff78fc-2852-4c17-a689-f90272f33b39"), 1);
+            AddItemToSlot(2, InventoryItem.GetFromID("e0d3f312-4b27-4a5a-b98b-6f3f4f622896"), 1);
+            AddItemToSlot(3, InventoryItem.GetFromID("e4d52187-b689-493e-90f3-640f327c97d5"), 1);
+            AddItemToSlot(4, InventoryItem.GetFromID("9759717b-5e40-499b-9ce6-1318cae40793"), 1);
+            AddItemToSlot(5, InventoryItem.GetFromID("4c00f521-a598-494a-89e6-744476476dc7"), 1);
+
         }
 
         /// <summary>
@@ -146,7 +181,12 @@ namespace Inventories
         /// <returns>-1 if no slot is found.</returns>
         private int FindSlot(InventoryItem item)
         {
-            return FindEmptySlot();
+            int i = FindStack(item);
+            if (i < 0)
+            {
+                i = FindEmptySlot();
+            }
+            return i;
         }
 
         /// <summary>
@@ -157,12 +197,40 @@ namespace Inventories
         {
             for (int i = 0; i < slots.Length; i++)
             {
-                if (slots[i] == null)
+                if (slots[i].item == null)
                 {
                     return i;
                 }
             }
             return -1;
+        }
+
+        /// <summary>
+        /// Find an existing stack of this item type.
+        /// </summary>
+        /// <returns>-1 if no stack exists or if the item is not stackable.</returns>
+        private int FindStack(InventoryItem item)
+        {
+            if (!item.IsStackable())
+            {
+                return -1;
+            }
+
+            for (int i = 0; i < slots.Length; i++)
+            {
+                if (object.ReferenceEquals(slots[i].item, item))
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        [System.Serializable]
+        private struct InventorySlotRecord
+        {
+            public string itemID;
+            public int number;
         }
 
     }

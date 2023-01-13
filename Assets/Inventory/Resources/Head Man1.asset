@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b9e4ce89573df49b37fb193b7f3880, type: 3}
+  m_Name: Head Man1
+  m_EditorClassIdentifier: 
+  itemID: e4d52187-b689-493e-90f3-640f327c97d5
+  displayName: Man Head 1
+  description: Why so serious
+  icon: {fileID: 21300000, guid: d09d96bbbecda6a45bd0d89884f2fe20, type: 3}
+  stackable: 0
+  allowedEquipLocation: 0
+  equippedPrefab: {fileID: 87960537007712647, guid: 12a3f096fdf1a97458d481ba9d4e34f3, type: 3}

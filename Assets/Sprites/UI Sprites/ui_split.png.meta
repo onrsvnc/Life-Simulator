@@ -1725,9 +1725,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 176
-        y: 242
+        y: 282
         width: 120
-        height: 72
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2487,7 +2487,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ui_split_39: 1532398687
+      ui_split_4: -1934456833
       ui_split_26: -252481844
       ui_split_88: -1763010827
       ui_split_70: 1635400347
@@ -2599,7 +2599,7 @@ TextureImporter:
       ui_split_42: -735617371
       ui_split_28: 1827199802
       ui_split_106: -1573641311
-      ui_split_4: -1934456833
+      ui_split_39: 1532398687
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

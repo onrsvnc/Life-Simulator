@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b9e4ce89573df49b37fb193b7f3880, type: 3}
+  m_Name: Head Girl1
+  m_EditorClassIdentifier: 
+  itemID: 1dff78fc-2852-4c17-a689-f90272f33b39
+  displayName: Girl Head 1
+  description: Cuttie
+  icon: {fileID: 21300000, guid: d9e7f31dc4946094aaf254e9e7e2faa9, type: 3}
+  stackable: 0
+  allowedEquipLocation: 0
+  equippedPrefab: {fileID: 87960537007712647, guid: 6453370dc12abf847a266f3887abce8b, type: 3}

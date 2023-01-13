@@ -1,16 +1,19 @@
 using UnityEngine;
-using UI.Dragging;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using Inventories;
+using UI.Dragging;
 
 namespace UI.Inventories
 {
-    public class InventorySlotUI : MonoBehaviour, IDragContainer<InventoryItem>
+    public class InventorySlotUI : MonoBehaviour, IItemHolder, IDragContainer<InventoryItem>
     {
         // CONFIG DATA
         [SerializeField] InventoryItemIcon icon = null;
 
         // STATE
         int index;
+        InventoryItem item;
         Inventory inventory;
 
         // PUBLIC
@@ -19,7 +22,7 @@ namespace UI.Inventories
         {
             this.inventory = inventory;
             this.index = index;
-            icon.SetItem(inventory.GetItemInSlot(index));
+            icon.SetItem(inventory.GetItemInSlot(index), inventory.GetNumberInSlot(index));
         }
 
         public int MaxAcceptable(InventoryItem item)
@@ -33,7 +36,7 @@ namespace UI.Inventories
 
         public void AddItems(InventoryItem item, int number)
         {
-            inventory.AddItemToSlot(index, item);
+            inventory.AddItemToSlot(index, item, number);
         }
 
         public InventoryItem GetItem()
@@ -43,12 +46,12 @@ namespace UI.Inventories
 
         public int GetNumber()
         {
-            return 1;
+            return inventory.GetNumberInSlot(index);
         }
 
         public void RemoveItems(int number)
         {
-            inventory.RemoveFromSlot(index);
+            inventory.RemoveFromSlot(index, number);
         }
     }
 }
