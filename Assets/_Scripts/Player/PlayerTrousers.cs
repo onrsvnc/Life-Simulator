@@ -74,10 +74,6 @@ namespace Player
         {
             return clothing.Spawn(l_legTransform);
         }
-
-
-
-
     }
 
 }
