@@ -17,5 +17,7 @@ MonoBehaviour:
   description: Cuttie
   icon: {fileID: 21300000, guid: d9e7f31dc4946094aaf254e9e7e2faa9, type: 3}
   stackable: 0
+  price: 10
+  category: 1
   allowedEquipLocation: 0
   equippedPrefab: {fileID: 87960537007712647, guid: 6453370dc12abf847a266f3887abce8b, type: 3}

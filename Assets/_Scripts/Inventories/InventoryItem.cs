@@ -24,6 +24,13 @@ namespace Inventories
         [SerializeField] Sprite icon = null;
         [Tooltip("If true, multiple items of this type can be stacked in the same inventory slot.")]
         [SerializeField] bool stackable = false;
+        [Tooltip("Item buy price in the shop.")]
+        [SerializeField] float price;
+        [Tooltip("Item Category")]
+        [SerializeField] ItemCategory category = ItemCategory.None;
+
+
+
 
         // STATE
         static Dictionary<string, InventoryItem> itemLookupCache;
@@ -84,6 +91,16 @@ namespace Inventories
         public string GetDescription()
         {
             return description;
+        }
+
+        public float GetPrice()
+        {
+            return price;
+        }
+
+        public ItemCategory GetCategory()
+        {
+            return category;
         }
 
         // PRIVATE

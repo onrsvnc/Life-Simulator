@@ -17,5 +17,7 @@ MonoBehaviour:
   description: Default Head
   icon: {fileID: 21300000, guid: fdf69a24b7d9254459cc59b50ef45acd, type: 3}
   stackable: 0
+  price: 0
+  category: 1
   allowedEquipLocation: 0
   equippedPrefab: {fileID: 87960537007712647, guid: 1dfe128d662fff04aa90821c6e3d1f6d, type: 3}

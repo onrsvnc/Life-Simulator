@@ -19,5 +19,7 @@ MonoBehaviour:
 '
   icon: {fileID: 21300000, guid: a3609b43750146d4ca8eeb7b802f83b7, type: 3}
   stackable: 0
+  price: 75
+  category: 3
   allowedEquipLocation: 2
   equippedPrefab: {fileID: 2160885745842462379, guid: f6a42de25695bbb4b866333ee9cf0abf, type: 3}

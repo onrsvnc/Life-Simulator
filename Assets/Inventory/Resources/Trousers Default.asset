@@ -17,5 +17,7 @@ MonoBehaviour:
   description: Brown trousers
   icon: {fileID: 21300000, guid: 19d196067b862c34288c4a806065b912, type: 3}
   stackable: 0
+  price: 0
+  category: 3
   allowedEquipLocation: 2
   equippedPrefab: {fileID: 2160885745842462379, guid: 3f7c1f43796b6ed40bca91b43c4d3a3e, type: 3}

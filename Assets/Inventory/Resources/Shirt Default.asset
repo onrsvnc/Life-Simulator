@@ -17,5 +17,7 @@ MonoBehaviour:
   description: Green cotton shirt
   icon: {fileID: 21300000, guid: e431d7520683c0c4cabf2ceac3d3166b, type: 3}
   stackable: 0
+  price: 0
+  category: 2
   allowedEquipLocation: 1
   equippedPrefab: {fileID: 153212103712260471, guid: bb850136dc070d547bfa92c8225e9b42, type: 3}
