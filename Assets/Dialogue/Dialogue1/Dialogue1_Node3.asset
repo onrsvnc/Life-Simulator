@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a33f02c9cd5c6549890b8cb7f7514e5, type: 3}
+  m_Name: Dialogue1_Node3
+  m_EditorClassIdentifier: 
+  m_dialogueLine: {fileID: 11400000, guid: cd4327eed6f085347900fd1deb211fc5, type: 2}
+  m_Choices:
+  - m_ChoicePreview: Now i can see the wares.
+    m_ChoiceNode: {fileID: 11400000, guid: 76f7d8675443e6347b6bd2774ccc482f, type: 2}
+  - m_ChoicePreview: I have to go.
+    m_ChoiceNode: {fileID: 0}

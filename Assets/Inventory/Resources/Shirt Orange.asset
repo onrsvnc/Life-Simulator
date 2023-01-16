@@ -17,7 +17,7 @@ MonoBehaviour:
   description: Tangerine
   icon: {fileID: 21300000, guid: 5d33f010f387e224cbd9684060d08855, type: 3}
   stackable: 0
-  price: 750
+  price: 200
   category: 2
   allowedEquipLocation: 1
   equippedPrefab: {fileID: 153212103712260471, guid: e9bc16d30f61fe64d9dd2a8ed4d7ba90, type: 3}

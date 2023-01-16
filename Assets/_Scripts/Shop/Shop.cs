@@ -11,9 +11,10 @@ namespace Shops
         [SerializeField] StockItemConfig[] stockConfig;
         [Range(0, 100)]
         [SerializeField] float sellingPercentage = 60f;
+        [SerializeField] Shopper shopper; 
 
-        [System.Serializable]
-        class StockItemConfig
+
+        [System.Serializable] class StockItemConfig
         {
             public InventoryItem item;
             public int initialStock;
@@ -286,16 +287,21 @@ namespace Shops
             return -1;
         }
 
-        private void OnTriggerStay2D(Collider2D other) 
+        public void OpenShop()
         {
-            if(other.gameObject.tag == "Player")
-            {
-                if (Input.GetKey(KeyCode.E))
-                {
-                    other.gameObject.GetComponent<Shopper>().SetActiveShop(this);
-                }
-            }
+            shopper.SetActiveShop(this);
         }
+
+        // private void OnTriggerStay2D(Collider2D other) 
+        // {
+        //     if(other.gameObject.tag == "Player")
+        //     {
+        //         if (Input.GetKey(KeyCode.E))
+        //         {
+        //             other.gameObject.GetComponent<Shopper>().SetActiveShop(this);
+        //         }
+        //     }
+        // }
 
         private void OnTriggerExit2D(Collider2D other) 
         {

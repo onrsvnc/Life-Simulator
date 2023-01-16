@@ -17,7 +17,7 @@ MonoBehaviour:
   description: Why so serious
   icon: {fileID: 21300000, guid: d09d96bbbecda6a45bd0d89884f2fe20, type: 3}
   stackable: 0
-  price: 150
+  price: 25
   category: 1
   allowedEquipLocation: 0
   equippedPrefab: {fileID: 87960537007712647, guid: 12a3f096fdf1a97458d481ba9d4e34f3, type: 3}

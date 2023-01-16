@@ -8,6 +8,7 @@ namespace Shops
     public class Shopper : MonoBehaviour
     {
         Shop activeShop = null;
+        
 
         public event Action activeShopChange;
 
@@ -32,6 +33,9 @@ namespace Shops
         {
             return activeShop;
         }
+
+        
+        
     }
 
 }

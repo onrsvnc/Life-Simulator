@@ -17,7 +17,7 @@ MonoBehaviour:
   description: Blue cotton shirt
   icon: {fileID: 21300000, guid: 24467b16fcef51848b66f66a00f0a777, type: 3}
   stackable: 0
-  price: 550
+  price: 150
   category: 2
   allowedEquipLocation: 1
   equippedPrefab: {fileID: 153212103712260471, guid: fd5973a533f4d294eaee853debac05d3, type: 3}

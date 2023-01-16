@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b9e4ce89573df49b37fb193b7f3880, type: 3}
+  m_Name: Head Robot1
+  m_EditorClassIdentifier: 
+  itemID: 9beb174c-aeb7-436e-a564-c35cb085e3ca
+  displayName: Robot Head
+  description: Robot Head
+  icon: {fileID: 21300000, guid: 95d9bf884ab9f1240816f7e655f6f3b9, type: 3}
+  stackable: 0
+  price: 45
+  category: 1
+  allowedEquipLocation: 0
+  equippedPrefab: {fileID: 87960537007712647, guid: 15e16096c29deae4b9ea1163c7f2d102, type: 3}

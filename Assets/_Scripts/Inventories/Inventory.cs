@@ -203,12 +203,12 @@ namespace Inventories
         private void Awake()
         {
             slots = new InventorySlot[inventorySize];
-            AddItemToSlot(0, InventoryItem.GetFromID("7854690f-026b-4121-875a-548b2c5c0024"),1);
-            AddItemToSlot(1, InventoryItem.GetFromID("1dff78fc-2852-4c17-a689-f90272f33b39"), 1);
-            AddItemToSlot(2, InventoryItem.GetFromID("e0d3f312-4b27-4a5a-b98b-6f3f4f622896"), 1);
-            AddItemToSlot(3, InventoryItem.GetFromID("e4d52187-b689-493e-90f3-640f327c97d5"), 1);
-            AddItemToSlot(4, InventoryItem.GetFromID("9759717b-5e40-499b-9ce6-1318cae40793"), 1);
-            AddItemToSlot(5, InventoryItem.GetFromID("4c00f521-a598-494a-89e6-744476476dc7"), 1);
+            // AddItemToSlot(0, InventoryItem.GetFromID("7854690f-026b-4121-875a-548b2c5c0024"),1);
+            // AddItemToSlot(1, InventoryItem.GetFromID("1dff78fc-2852-4c17-a689-f90272f33b39"), 1);
+            // AddItemToSlot(2, InventoryItem.GetFromID("e0d3f312-4b27-4a5a-b98b-6f3f4f622896"), 1);
+            // AddItemToSlot(3, InventoryItem.GetFromID("e4d52187-b689-493e-90f3-640f327c97d5"), 1);
+            // AddItemToSlot(4, InventoryItem.GetFromID("9759717b-5e40-499b-9ce6-1318cae40793"), 1);
+            // AddItemToSlot(5, InventoryItem.GetFromID("4c00f521-a598-494a-89e6-744476476dc7"), 1);
 
         }
 
