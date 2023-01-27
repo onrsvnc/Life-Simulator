@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using Inventories;
 using Player;
+using System.Collections;
+using UI.Shops;
 
 namespace Shops
 {
@@ -11,7 +13,8 @@ namespace Shops
         [SerializeField] StockItemConfig[] stockConfig;
         [Range(0, 100)]
         [SerializeField] float sellingPercentage = 60f;
-        [SerializeField] Shopper shopper; 
+        [SerializeField] Shopper shopper;
+        [SerializeField] ShopUIAnimations shopUianimations;
 
 
         [System.Serializable] class StockItemConfig
@@ -308,12 +311,19 @@ namespace Shops
             if (other.gameObject.tag == "Player")
             {
                 {
-                    other.gameObject.GetComponent<Shopper>().SetActiveShop(null);
+                    StartCoroutine("CloseShopWithAnimation");
                 }
             }
         }
 
-        
+        IEnumerator CloseShopWithAnimation()
+        {
+            shopUianimations.DeactivateShopPanelAnimation();
+            yield return new WaitForSeconds(1f);
+            shopper.SetActiveShop(null);
+        }
+
+
 
 
 

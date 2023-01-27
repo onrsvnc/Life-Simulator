@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Shops;
-
+using System.Collections;
 
 namespace UI.Shops
 {
@@ -13,18 +13,23 @@ namespace UI.Shops
         [SerializeField] TextMeshProUGUI totalField;
         [SerializeField] Button confirmBuyButton;
         [SerializeField] Button switchModeButton;
-
-
+        
         Shopper shopper = null;
         Shop currentShop = null;
+        ShopUIAnimations shopUianimations;
 
         Color originalTotalTextColor;
+
+        void Awake() 
+        {
+            shopper = GameObject.FindGameObjectWithTag("Player").GetComponent<Shopper>();
+            shopUianimations = GetComponent<ShopUIAnimations>();
+        }
 
         void Start()
         {
             originalTotalTextColor = totalField.color;
 
-            shopper = GameObject.FindGameObjectWithTag("Player").GetComponent<Shopper>();
             if(shopper == null) { return; }
 
             shopper.activeShopChange += ShopChange;
@@ -34,13 +39,12 @@ namespace UI.Shops
             ShopChange();
         }
 
-        void Update() 
+        void Update()
         {
-            if (Input.GetKey(KeyCode.Escape))
-            {
-                shopper.GetComponent<Shopper>().SetActiveShop(null);
-            }
+            CloseShopOnEscapeKey();
         }
+
+        
 
         private void ShopChange()
         {
@@ -99,11 +103,27 @@ namespace UI.Shops
 
         }
 
-        public void Close()
+        public void CloseShop()
         {
-            shopper.SetActiveShop(null);
+            StartCoroutine("CloseShopWithAnimation");
         }
 
+        void CloseShopOnEscapeKey()
+        {
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                StartCoroutine("CloseShopWithAnimation");
+            }
+        }
+
+        IEnumerator CloseShopWithAnimation()
+        {
+            shopUianimations.DeactivateShopPanelAnimation();
+            yield return new WaitForSeconds(1f);
+            shopper.SetActiveShop(null);
+        } 
+
+    
         public void ConfirmTransaction()
         {
             currentShop.ConfirmTransaction();

@@ -16,37 +16,53 @@ namespace UI.Inventories
         void Awake() 
         {
             shopper = GetComponent<Shopper>();
+            uiContainer.SetActive(false);
         }
 
         void Start()
         {
-            uiContainer.SetActive(false);
-            shopper.activeShopChange += OpenInventory;
+            
+            shopper.activeShopChange += OpenInventoryOnShop;
         }
 
         void Update()
         {
             ToggleInventory();
+            CloseInventory();
         }
 
-        public void OpenInventory()
+        public void OpenInventoryOnShop()
         {
-            if(shopper.GetActiveShop() != null)
+            if (shopper.GetActiveShop() != null)
             {
                 if (!uiContainer.activeSelf)
                 {
                     uiContainer.SetActive(true);
                 }
             }
+        }
+
+        public void ToggleInventory()
+        {
+            if (Input.GetKeyDown(toggleKey) && !uiContainer.activeSelf)
+            {
+                uiContainer.SetActive(true);
+            }
+
+            else if(Input.GetKeyDown(toggleKey) && uiContainer.activeSelf)
+            {
+                uiContainer.GetComponent<InventoryAnimations>().DeactivatePanels();
+            }
+        }
+
+        public void CloseInventory()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape) && uiContainer.activeSelf)
+            {
+                uiContainer.GetComponent<InventoryAnimations>().DeactivatePanels();
+            }
             
         }
 
-        private void ToggleInventory()
-        {
-            if (Input.GetKeyDown(toggleKey))
-            {
-                uiContainer.SetActive(!uiContainer.activeSelf);
-            }
-        }
     }
 }
